@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: white;
+    background-image: url(528dcbfa42d264fa319b4ebbdd62c775.gif);
+    background-size: cover; 
+}
+
+
+
+.todo-container, .progress-container {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="date"] {
+    padding: 10px;
+    margin-right: 10px;
+    width: calc(30% - 20px);
+}
+
+button {
+    padding: 10px 15px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    display: flex; 
+        align-items: center; 
+    }
+
+li > input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+li > span {
+    margin-right: 10px; 
+}
+
+.progress-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 20px;
+    width: 0;
+    background-color: #4caf50;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    border-radius: 25px;
+    transition: width 0.5s ease-in-out;
+}
+
+.movingImage {
+    padding-top: -50px;
+    position: absolute;
+    left: 0; 
+    transition: left 0.5s ease-in-out;
+}
+    
+.textual {
+    color: white;
+}
+

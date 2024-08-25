@@ -1,42 +1,53 @@
-function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('hidden');
-}
+ document.addEventListener('DOMContentLoaded', function() {
+    const tasksList = document.getElementById('todo-list');
+    const progress = document.getElementById('progress');
+    const addTaskBtn = document.getElementById('add-task-btn');
+    const taskInput = document.getElementById('task-input');
+    const dateInput = document.getElementById('date-input');
 
-document.getElementById('signupButton').addEventListener('click', function() {
-    document.getElementById('signupForm').style.display = 'block';
-    document.getElementById('loginForm').style.display = 'none';
-    this.classList.add('active');
-    document.getElementById('loginButton').classList.remove('active');
+    function updateProgress() {
+        const totalTasks = tasksList.children.length;
+        const completedTasks = document.querySelectorAll('.task:checked').length;
+        const progressPercentage = totalTasks === 0 ? 0 : (completedTasks / totalTasks) * 100;
+        progress.style.width = progressPercentage + '%';
+        progress.textContent = Math.round(progressPercentage) + '%';
+    }
+
+    function addTask(taskText, deadline) {
+        const li = document.createElement('li');
+        li.innerHTML = `<input type="checkbox" class="task" /> 
+                        <span>${taskText}</span> 
+                        <span>- Deadline: ${deadline}</span> 
+                        <button class="edit-btn">Edit</button>`;
+
+        tasksList.appendChild(li);
+        updateProgress();
+
+      
+        li.querySelector('.task').addEventListener('change', updateProgress);
+
+      
+        const editBtn = li.querySelector('.edit-btn');
+        editBtn.addEventListener('click', function() {
+            const newTaskText = prompt("Edit Task:", taskText);
+            if (newTaskText) {
+                li.querySelector('span').textContent = newTaskText; 
+            }
+        });
+    }
+
+    addTaskBtn.addEventListener('click', function() {
+        const taskText = taskInput.value.trim();
+        const deadline = dateInput.value;
+
+        if (taskText) {
+            addTask(taskText, deadline);
+            taskInput.value = ''; 
+            dateInput.value = ''; 
+        } else {
+            alert("Please enter a task.");
+        }
+    });
 });
 
-document.getElementById('loginButton').addEventListener('click', function() {
-    document.getElementById('signupForm').style.display = 'none';
-    document.getElementById('loginForm').style.display = 'block';
-    this.classList.add('active');
-    document.getElementById('signupButton').classList.remove('active');
-});
-
-document.querySelector('#signupForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const data = {
-        firstName: event.target[0].value,
-        lastName: event.target[1].value,
-        email: event.target[2].value,
-        password: event.target[3].value
-    };
-
-    fetch('/signup', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.text())
-    .then(data => {
-        // After a successful signup, redirect to the desired page
-        window.location.href = 'landing.html'; // Replace 'welcome.html' with your desired page
-    })
-    .catch(error => console.error('Error:', error));
-});
+ 
