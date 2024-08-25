@@ -1,0 +1,659 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2F6E26;
+    padding: 10px 20px;
+    color: white;
+    height: 60px;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    height: 30px;
+    margin-right: -1000px;
+}
+
+.search-bar input {
+    padding: 5px;
+    
+    margin-right: 100px;
+    margin-top: 15px;
+    height: 5px;
+}
+
+.search-bar button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin-left: 5px;
+
+}
+.search-bar button img{
+    height: 20px;
+}
+
+.language {
+    font-size: 14px;
+}
+
+/* Main Content */
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.welcome-section {
+    max-width: 40%;
+    margin-left: 140px;
+}
+
+.welcome-section h1 {
+    font-size: 68px;
+    color: #2F6E26;
+    margin-bottom: 20px;
+}
+
+.welcome-section .projex {
+    color: #2CBF1E;
+}
+
+.welcome-section h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #444444;
+}
+
+.welcome-section p {
+    font-size: 26px;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.signup-button, .login-button {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.signup-button {
+    background-color: #009900;
+}
+
+.signup-button:hover {
+    background-color: #007a00;
+}
+
+.login-button {
+    background-color: #2b5c2e;
+}
+
+.login-button:hover {
+    background-color: #1e421e;
+}
+
+.image-section1 img {
+    width: 600px;
+    height: 700px;
+    margin-right: 100px;
+}
+
+
+/*Sign up page*/
+/* Image Section */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ccf6cc; /* Light green background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    background-color: #e8ffe8; /* Slightly off-white background for the form */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 100%;
+}
+
+.image-section {
+    background-color: #ccf6cc; /* Same as the body background */
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-section {
+    padding: 40px;
+    background-color: #f2fff2; /* Slightly darker than the body background */
+    width: 100%;
+    max-width: 400px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button.active {
+    background-color: #4d4d4d; /* Dark gray for active button */
+    color: white;
+}
+
+button:not(.active) {
+    background-color: #f2fff2;
+    border: 2px solid #4d4d4d;
+    color: #4d4d4d;
+}
+
+button:hover {
+    background-color: #4d4d4d;
+    color: white;
+}
+
+button.social-signup {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: white;
+    color: #4d4d4d;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+button.social-signup::before {
+    content: "";
+    display: inline-block;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+button.social-signup.facebook::before {
+    background: url('facebook-icon.png') no-repeat center center;
+    background-size: contain;
+}
+
+button.social-signup.google::before {
+    background: url('google-icon.png') no-repeat center center;
+    background-size: contain;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #4d4d4d;
+}
+
+p {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #999;
+}
+
+input {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #bbb;
+}
+
+.signup-button, .login-button {
+    background-color: #2b5c2e; /* Green button color */
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signup-button:hover, .login-button:hover {
+    background-color: #1e421e; /* Darker green on hover */
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-section {
+        display: none; /* Hide the image section on smaller screens */
+    }
+
+    .form-section {
+        max-width: 100%;
+    }
+}
+
+
+/*landing page*/
+
+.landing {
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color:  #BDFACF;
+    height: 1000px;
+
+}
+
+.top-bar-heading{
+    margin-top: 5px;
+}
+  
+.sidebar {
+    background-color: #2a7c2f;
+    color: white;
+    padding: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+    z-index: 100;
+    height: 900px;
+    width: 200px;
+}
+  
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+  
+.sidebar h2 {
+    margin-bottom: 40px;
+}
+  
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+  
+.profile-pic {
+    width: 30px;
+    height: 25px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+  
+.username {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+  
+.nav-menu {
+    width: 100%;
+}
+  
+.nav-menu a {
+    display: block;
+    padding: 15px 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+  
+.nav-menu a:hover {
+    background-color: #3fa847;
+}
+
+.main-content{
+    display: flex;
+}
+
+.top-bar{
+    display: flex;
+   
+}
+
+.toggle-btn {
+    background-color: #2a7c2f;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    position: fixed; /* Ensure button stays in the same place */
+    top: 10px;
+    left: 10px;
+    z-index: 101; /* Ensure it is above sidebar when hidden */
+    margin-top: 85px;
+}
+
+.username{
+    font-size: 15px;
+    margin-top: -25px;
+}
+  
+
+  
+  
+
+  
+.language-select {
+    font-size: 1em;
+    color: #2a7c2f;
+}
+  
+
+.toggle-btn:hover {
+    background-color: #3fa847;
+}
+  
+.banner {
+    background-color: #b5e6a0;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height:600px;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 1500px;
+}
+  
+.banner h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    margin-left: 180px;
+    margin-top: 70px;
+    text-align: left;
+}
+  
+.banner p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    margin-left: 180px;
+}
+
+.banner-image {
+   flex: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.banner-image img{
+    max-width: 100%;
+    height: 500px;
+    margin-top: 50px;
+}
+
+
+  
+  
+.edit-profile-btn {
+    background-color: #2a7c2f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    align-content: left;
+    margin-top: 20px;
+}    
+  
+.edit-profile-btn:hover {
+    background-color: #3fa847;
+}
+
+
+
+
+
+header .top-bar {
+    background-color: #2E7D32;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.welcome-message {
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e7f9e7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+header {
+    grid-column: 1 / 3;
+    background-color: #2b5c2e;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile-header {
+    grid-column: 1 / 3;
+    background-image: url('bg-image.png'); /* Add your background image here */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    height: 200px;
+}
+
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.logout-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.language {
+    margin-left: 10px;
+}
+
+.profile-header {
+    grid-column: 1 / 3;
+    background-color: #50a550;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    height: 200px;
+}
+
+.profile-details {
+    color: black;
+    margin-top: 400px;
+    margin-left: 50px;
+}
+
+.user-image-container {
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+    padding: 20px 0;
+    position: relative;
+    top: 150px; /* Move the image up slightly */
+
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: auto;
+}
+
+aside {
+    background-color: #009900;
+    padding: 20px;
+    width: 500px;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside ul li {
+    margin: 15px 0;
+}
+
+aside ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+aside ul li a:hover {
+    background-color: #007a00;
+}
+
+main {
+    padding: 20px;
+    background-color: #ccffcc;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+form label {
+    grid-column: 1 / 2;
+    align-self: center;
+}
+
+form input {
+    grid-column: 2 / 3;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    grid-column: 1 / 3;
+    padding: 10px;
+    background-color: #2b5c2e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+}
