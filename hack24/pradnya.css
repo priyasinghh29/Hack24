@@ -1,0 +1,320 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #2E7D32;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px; /* Smaller padding for a smaller header */
+    height: 50px; /* Set a fixed height for a compact navbar */
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 1.5rem; /* Smaller font size for the logo */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+header .search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Adds space between the search bar and language selector */
+}
+
+header .search-bar input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+header .search-bar button {
+    background-color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+header .search-bar button img {
+    width: 16px; /* Adjust the size of the search icon */
+    height: 16px;
+}
+
+header .language p {
+    margin: 0;
+    font-size: 0.9rem; /* Slightly smaller text for language */
+}
+
+.h2 {
+    font-size: 50px;
+    margin-top: 10px;
+}
+
+/* Main container */
+main {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Navigation bar at the top */
+.navbar {
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.language {
+    font-size: 14px;
+}
+
+/* Header styling */
+.h2 {
+    font-size: 50px;
+    margin-top: 10px;
+}
+
+/* Navigation buttons styling */
+.navigation {
+    display: flex;
+    justify-content: space-between; /* Spread out the buttons evenly */
+    margin: 20px auto;
+    padding: 0 20px;
+    max-width: 1200px;
+}
+
+.navigation button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 10px; /* Space between buttons */
+    height: 60px;
+}
+
+/* Filters section styling */
+.filters {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.filters div {
+    text-align: center;
+    flex-grow: 1;
+    margin: 0 10px;
+}
+
+.filters label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.filters select {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+
+.nav-filters-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px; /* Space between navigation and filters */
+}
+
+.navigation button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 0 10px; /* Space between buttons */
+    height: 60px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap; /* Allows filters to wrap to the next line */
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.filters div {
+    flex: 1 1 200px; /* Adjusts flex basis and allows wrapping */
+    text-align: center;
+    margin: 0 10px;
+    margin-top: 20px;
+}
+
+.filters label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.filters select {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .navigation {
+        flex-direction: column;
+    }
+
+    .navigation button {
+        margin: 10px 0; /* Space between buttons when stacked vertically */
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+}
+
+.filters select {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    position: relative; /* Make sure the position is relative */
+    z-index: 1; /* Ensure the dropdown is above other content */
+}
+
+/* Additional styling for dropdown arrow */
+.filters select::after {
+    content: '▼'; /* Adds a downward arrow */
+    position: absolute;
+    right: 10px; /* Position the arrow */
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Allow clicks through the arrow */
+    color: #ccc; /* Adjust the color of the arrow */
+}
+
+
+/* Container for filters to ensure dropdowns are visible */
+.filters {
+    position: relative; /* Allows dropdowns to be positioned relative to this container */
+    overflow: visible; /* Ensures dropdowns are not clipped */
+}
+
+/* 2 */
+
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #e8f5e9;
+    border: 1px solid #CDFFDB;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+}
+
+.card button {
+    background-color: #5AE57F;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 0.9rem;
+}
+
+.card .read-more {
+    background-color: #ffffff;
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+.card .collaborate {
+    background-color: #66bb6a;
+}
+
+.card .star-repository {
+    margin-top: 15px;
+    color: #ffeb3b;
+}
