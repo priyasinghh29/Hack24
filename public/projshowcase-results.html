@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjeX - Project Search Results</title>
+    <!-- Link to the combined CSS file for this page -->
+    <link rel="stylesheet" href="project-showcase-results.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header Section (consistent across pages) -->
+        <header>
+            <div class="logo">
+                <img src="logo-img.png" alt="ProjeX Logo">
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <button><img src="search-icon.png" alt="Search"></button>
+            </div>
+            <div class="language">
+                <span>English (United States)</span>
+            </div>
+        </header>
+
+        <!-- Main Content Area with Sidebar -->
+        <div class="main-content-area">
+            <!-- Sidebar (consistent across pages) -->
+            <div class="sidebar" id="sidebar">
+                <button class="toggle-btn" id="sidebarToggle">☰</button>
+                <div class="top-bar-heading">
+                    <h2>ProjeX</h2>
+                </div>
+        
+                <div class="profile-section">
+                    <img src="logo-img.png" alt="Profile Picture" class="profile-pic-sidebar">
+                </div>
+                    
+                <div class="username">
+                    <h2>Username</h2>
+                </div>
+                   
+                <nav class="nav-menu">
+                    <a href="user.html">My Profile</a>
+                    <a href="project.html">My Projects</a>
+                    <a href="projshowcase2.html">Project Portal</a>
+                    <a href="progress-tracker.html">Progress Tracker</a>
+                    <a href="portfolio-maker.html">Portfolio Generator</a>
+                    <a href="#">Code Collaboration Tool</a>
+                </nav>
+            </div>
+
+            <!-- Project Showcase Results Content -->
+            <div class="projshowcase-results-content">
+                <h1 class="projshowcase-title">PROJECT SHOWCASE PORTAL</h1>
+
+                <div class="results-grid">
+                    <!-- Project Card 1 -->
+                    <div class="project-card">
+                        <h3>Fire Risk Prediction</h3>
+                        <p class="description">Develop a model to predict the likelihood of fire outbreaks in specific areas based on environmental factors like temperature, humidity, and vegetation.</p>
+                        <div class="card-actions">
+                            <button class="read-more-btn">Read More</button>
+                            <button class="collaborate-btn">Collaborate</button>
+                        </div>
+                        <div class="star-repo">
+                            <span class="star-icon">⭐</span> Star Repository
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card">
+                        <h3>Anomaly Detection in HVAC Systems</h3>
+                        <p class="description">Detect anomalies in Heating, Ventilation, and Air Conditioning (HVAC) systems that could indicate potential fire hazards or system failures.</p>
+                        <div class="card-actions">
+                            <button class="read-more-btn">Read More</button>
+                            <button class="collaborate-btn">Collaborate</button>
+                        </div>
+                        <div class="star-repo">
+                            <span class="star-icon">⭐</span> Star Repository
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card">
+                        <h3>Air Quality Monitoring and Hazard Prediction</h3>
+                        <p class="description">Predict the impact of air quality deterioration (e.g., due to smoke from wildfires) on public health and safety.</p>
+                        <div class="card-actions">
+                            <button class="read-more-btn">Read More</button>
+                            <button class="collaborate-btn">Collaborate</button>
+                        </div>
+                        <div class="star-repo">
+                            <span class="star-icon">⭐</span> Star Repository
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="project-card">
+                        <h3>Predictive Evacuation Planning</h3>
+                        <p class="description">Develop a model to predict the best evacuation routes and strategies in the event of a fire or other emergencies based on real-time data.</p>
+                        <div class="card-actions">
+                            <button class="read-more-btn">Read More</button>
+                            <button class="collaborate-btn">Collaborate</button>
+                        </div>
+                        <div class="star-repo">
+                            <span class="star-icon">⭐</span> Star Repository
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div class="project-card">
+                        <h3>Predictive Analytics for Emergency Response</h3>
+                        <p class="description">Predict the response time and resource needs for emergency services.</p>
+                        <div class="card-actions">
+                            <button class="read-more-btn">Read More</button>
+                            <button class="collaborate-btn">Collaborate</button>
+                        </div>
+                        <div class="star-repo">
+                            <span class="star-icon">⭐</span> Star Repository
+                        </div>
+                    </div>
+
+                    <!-- Project Card 6 -->
+                    <div class="project-card">
+                        <h3>Wildfire Spread Prediction</h3>
+                        <p class="description">Predict the spread of wildfires based on real-time environmental conditions and historical data, enabling better resource allocation for firefighting efforts.</p>
+                        <div class="card-actions">
+                            <button class="read-more-btn">Read More</button>
+                            <button class="collaborate-btn">Collaborate</button>
+                        </div>
+                        <div class="star-repo">
+                            <span class="star-icon">⭐</span> Star Repository
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="landing-scripts.js"></script> <!-- Re-use landing page script for sidebar toggle -->
+</body>
+</html>

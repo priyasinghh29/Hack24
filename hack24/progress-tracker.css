@@ -1,0 +1,548 @@
+/*
+    progress-tracker-combined.css
+
+    This file combines the base layout styles (header, sidebar)
+    and the specific "Progress Tracker" page content styles.
+*/
+
+/* --- Base Layout Styles (consistent across pages) --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0; /* Reset padding here, specific padding will be on .progress-tracker-content */
+    color: #333; /* Default text color, overridden by .textual where needed */
+    background-color: #f0f8f0; /* Default light background */
+    display: flex; /* Use flexbox for overall layout */
+    min-height: 100vh; /* Ensure full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    box-sizing: border-box;
+    /* User's background image for the body */
+    background-image: url(528dcbfa42d264fa319b4ebbdd62c775.gif);
+    background-size: cover; /* Cover the entire viewport */
+    background-attachment: fixed; /* Keep background fixed when scrolling */
+    background-position: center center; /* Center the background image */
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%; /* Ensure wrapper takes full width */
+}
+
+/* Header Section (Top Bar) */
+header {
+    background-color: #2F6E26; /* Deep green from design */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Take full width */
+    position: fixed; /* Keep header fixed at the top */
+    top: 0;
+    left: 0;
+    z-index: 500; /* Ensure it's above other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 60px; /* Fixed height */
+    box-sizing: border-box; /* Include padding in height */
+}
+
+header .logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* If it's a circular logo */
+    margin-right: 10px;
+}
+
+header .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    height: 30px;
+    flex-grow: 0;
+    width: 250px; /* Fixed width for header search bar */
+}
+
+header .search-bar input {
+    flex-grow: 1;
+    border: none;
+    padding: 5px 0;
+    height: auto;
+    margin: 0;
+    outline: none;
+    color: #333;
+}
+
+header .search-bar button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin-left: 10px;
+    cursor: pointer;
+}
+header .search-bar button img {
+    height: 20px;
+    vertical-align: middle;
+}
+
+header .language {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Overall layout for sidebar and main content */
+.main-content-area {
+    display: flex;
+    flex-grow: 1; /* Allow it to take remaining width */
+    margin-top: 60px; /* Space for the fixed header */
+    width: 100%; /* Ensure it takes full width below header */
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #2a7c2f; /* Darker green for sidebar */
+    color: white;
+    padding: 20px;
+    width: 250px; /* Fixed width for sidebar */
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+    z-index: 400; /* Below header, above main content */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%); /* Slides it completely out of view to the left */
+    position: absolute; /* Allows main content to take full width when hidden */
+}
+
+.sidebar h2 { /* ProjeX heading in sidebar */
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    align-self: flex-start; /* Align to the start */
+    margin-left: 10px;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.profile-pic-sidebar { /* Profile picture inside sidebar */
+    width: 60px; /* Larger profile pic */
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover; /* Ensure image covers the area */
+    margin-bottom: 10px;
+    border: 2px solid white; /* Small white border */
+}
+
+.username {
+    font-size: 1.1em; /* Adjusted font size */
+    font-weight: bold;
+    margin-top: 0; /* Remove negative margin */
+}
+
+.nav-menu {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.nav-menu a {
+    display: flex; /* Use flex for icon + text if you add icons later */
+    align-items: center;
+    padding: 15px 20px; /* Increased padding for better click area */
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    margin-bottom: 5px; /* Less margin between links */
+    border-radius: 8px; /* Slightly rounded corners for menu items */
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: #3fa847; /* Lighter green on hover */
+}
+
+/* Toggle button for sidebar */
+.toggle-btn {
+    background-color: #2a7c2f; /* Matches sidebar color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute; /* Position relative to the .main-content-area container */
+    top: 10px; /* Adjusted position */
+    left: 10px; /* Adjusted position */
+    z-index: 501; /* Above sidebar */
+    /* display: block; - Now visible by default on desktop too, as requested */
+}
+
+.toggle-btn:hover {
+    background-color: #3fa847;
+}
+
+/* Logout button style within the main sidebar */
+.sidebar .logout-button {
+    background-color: #ff4d4d; /* Red logout button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: auto; /* Pushes the button to the bottom of the flex container */
+    margin-bottom: 20px; /* Space from the bottom of the sidebar */
+    transition: background-color 0.3s ease;
+    width: 80%; /* Make it wider within the sidebar */
+}
+
+.sidebar .logout-button:hover {
+    background-color: #cc0000;
+}
+/* --- Progress Tracker Specific Content Styles --- */
+.progress-tracker-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white background for content */
+    margin: 20px auto; /* Center the content horizontally */
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items within the column */
+    max-width: 900px; /* Max width for the progress tracker content */
+    color: #333; /* Default text color for content inside this block */
+}
+
+.page-title {
+    font-size: 2.5em;
+    color: #2F6E26;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* User's styles for .todo-container, .progress-container */
+.progress-container, .todo-container {
+    width: 90%;
+    max-width: 600px;
+    background-color: white; /* Explicitly white background */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    text-align: center;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.progress-container h2, .todo-container h2 {
+    font-size: 1.8em;
+    color: #2a7c2f;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* User's styles for inputs */
+.task-input-group input[type="text"],
+.task-input-group input[type="date"] {
+    padding: 10px;
+    margin-right: 10px;
+    width: calc(30% - 20px); /* User's specified width */
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Consistent border-radius */
+    font-size: 1em;
+    outline: none;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* User's styles for buttons */
+.task-input-group button { /* This targets the "Add Task" button */
+    padding: 10px 15px;
+    background-color: #2a7c2f; /* Consistent green */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Consistent border-radius */
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.task-input-group button:hover {
+    background-color: #3fa847;
+}
+
+/* User's styles for ul and li */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Ensure no default margins */
+}
+
+li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9; /* Light background for list items */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1.05em;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    justify-content: space-between; /* Distribute content */
+}
+
+li.completed {
+    background-color: #e6ffe6; /* Light green for completed tasks */
+    text-decoration: line-through;
+    color: #777;
+}
+
+li > input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Slightly larger checkbox */
+    cursor: pointer;
+}
+
+li > span {
+    margin-right: 10px;
+    flex-grow: 1; /* Allow text to take space */
+}
+
+.task-date { /* Specific style for date span */
+    font-size: 0.9em;
+    color: #888;
+    white-space: nowrap;
+}
+
+.task-actions { /* Container for action buttons */
+    display: flex;
+    gap: 8px;
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.task-actions .complete-btn {
+    color: #2a7c2f; /* Green checkmark */
+}
+
+.task-actions .complete-btn:hover {
+    color: #3fa847;
+}
+
+.task-actions .delete-btn {
+    color: #ff4d4d; /* Red trash can */
+}
+
+.task-actions .delete-btn:hover {
+    color: #cc0000;
+}
+
+
+/* User's styles for progress bar */
+.progress-bar { /* This is the outer container */
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.progress { /* This is the inner progress indicator */
+    height: 20px;
+    width: 0;
+    background-color: #4caf50; /* User's green */
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    border-radius: 25px;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-percentage {
+    font-size: 1.1em;
+    color: #555;
+    font-weight: bold;
+    margin-top: 10px; /* Space from progress bar */
+}
+
+/* User's styles for movingImage */
+.movingImage {
+    width: 100%;
+    max-width: 400px; /* Limit size */
+    margin-top: 30px;
+    text-align: center;
+    position: relative; /* Changed to relative to keep it in flow, adjust if absolute needed */
+    /* Removed absolute positioning to prevent overlap with header/sidebar */
+    /* If you want it floating, consider a different container or z-index */
+    /* If you truly want it absolutely positioned relative to the viewport,
+       you'll need to manage its top/left/right/bottom values carefully to avoid overlap. */
+}
+.movingImage img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+    
+/* User's styles for textual */
+.textual {
+    color: #2a7c2f; /* Dark green for textual elements */
+    /* Overrides the body's white color for these specific spans */
+}
+
+
+/* --- Media Queries (Combined and Adjusted) --- */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .progress-tracker-content {
+        margin: 15px auto;
+        padding: 15px;
+    }
+
+    .page-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    .progress-container, .todo-container {
+        padding: 20px;
+    }
+
+    .progress-container h2, .todo-container h2 {
+        font-size: 1.5em;
+    }
+
+    .task-input-group input[type="text"],
+    .task-input-group input[type="date"] {
+        width: 100%; /* Full width on smaller screens */
+        margin-right: 0;
+        margin-bottom: 10px; /* Space between stacked inputs */
+    }
+
+    .task-input-group button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        /* Ensure background image remains centered and covers */
+        background-position: center center;
+        background-attachment: scroll; /* Allow background to scroll on mobile if needed */
+    }
+
+    header {
+        position: static;
+        height: auto;
+        padding: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header .search-bar {
+        width: 90%;
+        margin-top: 10px;
+    }
+    header .language {
+        margin-top: 10px;
+    }
+
+    .main-content-area {
+        margin-top: 0;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: fixed;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        box-shadow: 4px 0 8px rgba(0,0,0,0.2);
+        padding-top: 80px;
+    }
+
+    .sidebar.visible {
+        transform: translateX(0);
+    }
+
+    .toggle-btn {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 600;
+    }
+
+    .progress-tracker-content {
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .page-title {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    .progress-container, .todo-container {
+        padding: 15px;
+    }
+
+    .task-input-group {
+        flex-direction: column; /* Stack inputs and button vertically */
+        gap: 10px;
+    }
+
+    .task-input-group input, .task-input-group button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #todo-list li {
+        flex-direction: column; /* Stack task details vertically */
+        align-items: flex-start;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    #todo-list li .task-text {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    #todo-list li .task-date {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    #todo-list li .task-actions {
+        width: 100%;
+        justify-content: flex-end; /* Align action buttons to the right */
+    }
+}

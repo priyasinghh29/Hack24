@@ -1,0 +1,498 @@
+/*
+    user-profile-combined.css
+
+    This file combines the base layout styles (header, sidebar from landing-page.css)
+    and the specific "User Profile" page content styles (from user-profile.css).
+*/
+
+/* --- Base Layout Styles (consistent across pages) --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8f0; /* Consistent background with dashboard */
+    display: flex; /* Use flexbox for overall layout */
+    min-height: 100vh; /* Ensure full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    box-sizing: border-box;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%; /* Ensure wrapper takes full width */
+}
+
+/* Header Section (Top Bar) */
+header {
+    background-color: #2F6E26; /* Deep green from design */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Take full width */
+    position: fixed; /* Keep header fixed at the top */
+    top: 0;
+    left: 0;
+    z-index: 500; /* Ensure it's above other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 60px; /* Fixed height */
+    box-sizing: border-sizing; /* Include padding in height */
+}
+
+header .logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* If it's a circular logo */
+    margin-right: 10px;
+}
+
+header .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    height: 30px;
+    flex-grow: 0;
+    width: 250px; /* Fixed width for header search bar */
+}
+
+header .search-bar input {
+    flex-grow: 1;
+    border: none;
+    padding: 5px 0;
+    height: auto;
+    margin: 0;
+    outline: none;
+    color: #333;
+}
+
+header .search-bar button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin-left: 10px;
+    cursor: pointer;
+}
+header .search-bar button img {
+    height: 20px;
+    vertical-align: middle;
+}
+
+header .language {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Overall layout for sidebar and main content */
+.main-content-area {
+    display: flex;
+    flex-grow: 1; /* Allow it to take remaining width */
+    margin-top: 60px; /* Space for the fixed header */
+    width: 100%; /* Ensure it takes full width below header */
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #2a7c2f; /* Darker green for sidebar */
+    color: white;
+    padding: 20px;
+    width: 250px; /* Fixed width for sidebar */
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+    z-index: 400; /* Below header, above main content */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%); /* Slides it completely out of view to the left */
+    position: absolute; /* Allows main content to take full width when hidden */
+}
+
+.sidebar h2 { /* ProjeX heading in sidebar */
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    align-self: flex-start; /* Align to the start */
+    margin-left: 10px;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.profile-pic-sidebar { /* Profile picture inside sidebar */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid white;
+}
+
+.username { /* This is for the "Username" text in the sidebar */
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 0;
+    color: white; /* Ensure sidebar username is white */
+}
+
+.nav-menu {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.nav-menu a {
+    display: flex; /* Use flex for icon + text if you add icons later */
+    align-items: center;
+    padding: 15px 20px; /* Increased padding for better click area */
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    margin-bottom: 5px; /* Less margin between links */
+    border-radius: 8px; /* Slightly rounded corners for menu items */
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: #3fa847; /* Lighter green on hover */
+}
+
+/* Toggle button for sidebar */
+.toggle-btn {
+    background-color: #2a7c2f; /* Matches sidebar color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 501;
+    display: none; /* Hidden by default on desktop, shown on mobile */
+}
+
+.toggle-btn:hover {
+    background-color: #3fa847;
+}
+
+/* Logout button style within the main sidebar */
+.sidebar .logout-button {
+    background-color: #ff4d4d; /* Red logout button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: auto; /* Pushes the button to the bottom of the flex container */
+    margin-bottom: 20px; /* Space from the bottom of the sidebar */
+    transition: background-color 0.3s ease;
+    width: 80%; /* Make it wider within the sidebar */
+}
+
+.sidebar .logout-button:hover {
+    background-color: #cc0000;
+}
+
+
+/* --- User Profile Specific Content Styles --- */
+.profile-page-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #e8ffe8; /* Light background for the main profile area */
+    margin: 20px auto; /* Centered horizontally */
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure border-radius applies to children */
+    max-width: 1000px; /* Limit max width for centering */
+}
+
+.profile-header-section {
+    position: relative;
+    height: 200px; /* Height of the background image area */
+    background-color: #50a550; /* Fallback color if image not found */
+    background-image: url('bg-image.png'); /* Add your background image here */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end; /* Align user details to the bottom */
+    padding-bottom: 20px; /* Space for details above bottom edge */
+    box-sizing: border-box;
+}
+
+.user-details-overlay {
+    position: relative; /* For positioning profile pic and details */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-left: 40px; /* Space from left edge */
+}
+
+.user-image-container {
+    margin-right: 20px; /* Space between image and details */
+    position: relative;
+    top: 50px; /* Lift the image up over the background */
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+.profile-pic-main { /* Main profile picture */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    background-color: #ccc; /* Placeholder background */
+}
+
+.profile-pic-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details {
+    color: #2F6E26; /* Changed to dark green for better visibility */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* Adjusted subtle shadow */
+    margin-top: 50px; /* Adjust margin to align with image */
+}
+
+.profile-details h1 {
+    font-size: 2.2em;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.profile-details h2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.profile-details .location,
+.profile-details .username-handle {
+    font-size: 1em;
+    margin-bottom: 0;
+    color: #444; /* Darker color for location/handle for better contrast */
+}
+
+.profile-body-section {
+    display: flex;
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #e8ffe8; /* Match container background */
+}
+
+/* Main Form Area for Profile Page */
+.profile-form-area {
+    flex-grow: 1; /* Allow form area to take remaining space */
+    background-color: #f2fff2; /* Lighter background for form */
+    padding: 30px;
+    border-radius: 20px; /* Keep consistent with container */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+}
+
+.profile-form-area form {
+    display: grid;
+    grid-template-columns: 150px 1fr; /* Label width and input width */
+    gap: 20px; /* Space between rows and columns */
+    align-items: center; /* Vertically align labels and inputs */
+}
+
+.profile-form-area form label {
+    font-weight: bold;
+    color: #444;
+}
+
+.profile-form-area form input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    width: 100%; /* Ensure input takes full grid column width */
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.profile-form-area form input:focus {
+    border-color: #2a7c2f;
+}
+
+.profile-form-area form .form-group {
+    display: contents; /* Allows children to participate directly in grid layout */
+}
+
+.save-changes-button {
+    grid-column: 1 / 3; /* Button spans both columns */
+    padding: 12px 25px;
+    background-color: #2b5c2e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px; /* Space above button */
+    transition: background-color 0.3s ease;
+}
+
+.save-changes-button:hover {
+    background-color: #1e421e;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .profile-page-content {
+        margin: 15px auto; /* Center content on smaller screens */
+        max-width: 90%; /* Adjust max-width for smaller screens */
+    }
+
+    .profile-header-section {
+        height: 180px;
+    }
+
+    .profile-details h1 {
+        font-size: 1.8em;
+    }
+
+    .profile-details h2 {
+        font-size: 1em;
+    }
+
+    .profile-form-area {
+        padding: 25px;
+    }
+
+    .profile-form-area form {
+        grid-template-columns: 120px 1fr;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content-area {
+        flex-direction: column; /* Stack sidebar and profile content */
+        margin-top: 0; /* Header is static on mobile */
+    }
+
+    header {
+        position: static;
+        height: auto;
+        padding: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header .search-bar {
+        width: 90%;
+        margin-top: 10px;
+    }
+    header .language {
+        margin-top: 10px;
+    }
+
+    .sidebar {
+        position: fixed;
+        height: 100vh;
+        width: 250px;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        box-shadow: 4px 0 8px rgba(0,0,0,0.2);
+        padding-top: 80px;
+    }
+
+    .sidebar.visible {
+        transform: translateX(0);
+    }
+
+    .toggle-btn {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 600;
+    }
+
+    .profile-page-content {
+        margin: 10px auto; /* Center content on mobile */
+        padding: 0; /* Remove padding from outer container, handled by inner sections */
+        border-radius: 10px;
+        max-width: 95%; /* Adjust max-width for mobile */
+    }
+
+    .profile-header-section {
+        height: 150px;
+        align-items: center; /* Center details vertically on small screens */
+        padding-bottom: 10px;
+    }
+
+    .user-details-overlay {
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .user-image-container {
+        margin-right: 0;
+        margin-bottom: 10px; /* Space below image */
+        top: 0; /* Reset top position */
+    }
+
+    .profile-pic-main {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-details {
+        margin-top: 0;
+        color: #2F6E26; /* Keep dark green for better visibility */
+    }
+
+    .profile-body-section {
+        flex-direction: column; /* Stack aside and form vertically */
+        padding: 15px;
+    }
+
+    .profile-form-area {
+        width: 100%; /* Take full width when stacked */
+        padding: 20px;
+    }
+
+    .profile-form-area form {
+        grid-template-columns: 1fr; /* Stack labels and inputs vertically */
+        gap: 10px;
+    }
+
+    .profile-form-area form label {
+        grid-column: 1 / 2; /* Label takes full width */
+        text-align: left;
+    }
+
+    .profile-form-area form input {
+        grid-column: 1 / 2; /* Input takes full width */
+    }
+
+    .save-changes-button {
+        grid-column: 1 / 2; /* Button takes full width */
+    }
+}
